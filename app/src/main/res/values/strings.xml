@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Encriptacion RSA - Trabajo Final</string>
+    <string name="tittle_bits">Tamaño en bits para la llave publica y privada</string>
+    <string name="plain_text">Mensaje a encriptar</string>
+    <string name="encrypted_text">Mensaje encriptado</string>
+    <string name="desncrypted_text">Mensaje desencriptado</string>
+    <string name="p_value">Valor de P</string>
+    <string name="q_value">Valor de Q</string>
+    <string name="n_value">Valor de N</string>
+    <string name="z_value">Valor de Z</string>
+    <string name="e_value">Valor de E</string>
+    <string name="d_value">Valor de D</string>
+    <string name="text_input">Seleccione un numero de bits</string>
+    <string name="button_next">Siguiente</string>
+    <string name="button_home">Regresar a Inicio</string>
+</resources>
