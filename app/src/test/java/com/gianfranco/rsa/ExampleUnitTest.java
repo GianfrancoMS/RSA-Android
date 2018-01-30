@@ -1,4 +1,4 @@
-package com.gianfranco.encriptacionrsa;
+package com.gianfranco.rsa;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.gianfranco.encriptacionrsa;
+package com.gianfranco.rsa;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

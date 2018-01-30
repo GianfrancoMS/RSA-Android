@@ -1,4 +1,4 @@
-package com.gianfranco.encriptacionrsa;
+package com.gianfranco.rsa;
 
 /**
  * Created by Familia on 11/11/2016.

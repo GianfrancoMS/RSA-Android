@@ -11,7 +11,7 @@
     android:orientation="vertical"
     android:fillViewport="true"
     android:scrollbarThumbVertical="@color/colorPrimary"
-    tools:context="com.gianfranco.encriptacionrsa.Details">
+    tools:context="com.gianfranco.rsa.Details">
 
     <RelativeLayout
         android:layout_width="match_parent"

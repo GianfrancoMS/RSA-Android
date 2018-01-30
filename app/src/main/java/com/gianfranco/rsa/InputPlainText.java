@@ -1,4 +1,4 @@
-package com.gianfranco.encriptacionrsa;
+package com.gianfranco.rsa;
 
 import android.content.Intent;
 import android.graphics.Color;
