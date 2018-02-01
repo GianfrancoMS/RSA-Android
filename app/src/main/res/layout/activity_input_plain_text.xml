@@ -4,7 +4,7 @@
     android:id="@+id/activity_input_plain_text"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gianfranco.rsa.InputPlainText">
+    tools:context="com.gianfranco.rsa.view.InputPlainText">
 
     <RelativeLayout
         android:layout_height="match_parent"

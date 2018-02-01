@@ -1,16 +1,15 @@
-package com.gianfranco.rsa;
+package com.gianfranco.rsa.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.security.NoSuchAlgorithmException;
+import com.gianfranco.rsa.R;
+import com.gianfranco.rsa.model.RSA;
 
 @SuppressWarnings("FieldCanBeLocal")
 
@@ -47,14 +46,14 @@ public class Details extends AppCompatActivity {
         encryptedValue=(TextView) findViewById(R.id.encrypted_value);
         desencryptedValue=(TextView) findViewById(R.id.desencrypted_value);
 
-        pValue.setText(rsa.getP());
-        qValue.setText(rsa.getQ());
-        nValue.setText(rsa.getN());
-        zValue.setText(rsa.getZ());
-        dValue.setText(rsa.getD());
-        eValue.setText(rsa.getE());
-        encryptedValue.setText(rsa.getEncryptedText());
-        desencryptedValue.setText(rsa.getDesencryptedText());
+        pValue.setText(rsa.P());
+        qValue.setText(rsa.q());
+        nValue.setText(rsa.N());
+        zValue.setText(rsa.Z());
+        dValue.setText(rsa.D());
+        eValue.setText(rsa.E());
+        encryptedValue.setText(rsa.encryptedText());
+        desencryptedValue.setText(rsa.decryptedText());
 
         Button button=(Button)findViewById(R.id.btn_home);
         button.setOnClickListener(new View.OnClickListener() {

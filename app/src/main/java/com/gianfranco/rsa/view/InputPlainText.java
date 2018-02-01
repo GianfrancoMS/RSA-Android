@@ -1,21 +1,18 @@
-package com.gianfranco.rsa;
+package com.gianfranco.rsa.view;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.gianfranco.rsa.R;
 
 public class InputPlainText extends AppCompatActivity {
 

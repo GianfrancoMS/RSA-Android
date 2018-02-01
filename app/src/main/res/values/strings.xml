@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Encriptacion RSA - Trabajo Final</string>
+    <string name="app_name">RSA</string>
     <string name="tittle_bits">Tamaño en bits para la llave publica y privada</string>
     <string name="plain_text">Mensaje a encriptar</string>
     <string name="encrypted_text">Mensaje encriptado</string>
