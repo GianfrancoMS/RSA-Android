@@ -5,19 +5,19 @@
     android:layout_marginStart="@dimen/horizontal_margin">
 
     <TextView
-        android:id="@+id/tv_label_bits"
+        android:id="@+id/tv_label_key_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginBottom="16dp"
-        android:text="@string/tittle_bits"
+        android:text="@string/title_bits"
         android:textSize="@dimen/label_size" />
 
     <Spinner
-        android:id="@+id/spinner_bits"
+        android:id="@+id/spinner_key_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_label_bits"
+        android:layout_below="@+id/tv_label_key_size"
         android:layout_marginBottom="16dp"
         android:prompt="@string/text_input"
         android:spinnerMode="dropdown"
@@ -27,7 +27,7 @@
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinner_bits"
+        android:layout_below="@id/spinner_key_size"
         android:text="@string/button_next"
         android:theme="@style/RaisedButton" />
 

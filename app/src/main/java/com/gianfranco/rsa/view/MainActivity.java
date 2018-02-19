@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Spinner spinnerBits = (Spinner) findViewById(R.id.spinner_bits);
+        final Spinner spinnerBits = (Spinner) findViewById(R.id.spinner_key_size);
         Integer [] bits = new Integer[] {64,128,256,512,1024,2048};
         ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this,R.layout.support_simple_spinner_dropdown_item,bits);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);

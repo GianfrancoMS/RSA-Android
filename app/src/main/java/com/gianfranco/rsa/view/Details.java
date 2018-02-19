@@ -37,14 +37,14 @@ public class Details extends AppCompatActivity {
             Log.i("RSA","Error");
         }
 
-        pValue=(TextView) findViewById(R.id.p_value);
-        qValue=(TextView) findViewById(R.id.q_value);
-        nValue=(TextView) findViewById(R.id.n_value);
-        zValue=(TextView) findViewById(R.id.z_value);
-        dValue=(TextView) findViewById(R.id.d_value);
-        eValue=(TextView) findViewById(R.id.e_value);
-        encryptedValue=(TextView) findViewById(R.id.encrypted_value);
-        desencryptedValue=(TextView) findViewById(R.id.desencrypted_value);
+        pValue=(TextView) findViewById(R.id.tv_pValue);
+        qValue=(TextView) findViewById(R.id.tv_qValue);
+        nValue=(TextView) findViewById(R.id.tv_nValue);
+        zValue=(TextView) findViewById(R.id.tv_zValue);
+        dValue=(TextView) findViewById(R.id.tv_dValue);
+        eValue=(TextView) findViewById(R.id.tv_eValue);
+        encryptedValue=(TextView) findViewById(R.id.tv_encrypted_value);
+        desencryptedValue=(TextView) findViewById(R.id.tv_decrypted_value);
 
         pValue.setText(rsa.pToString());
         qValue.setText(rsa.qToString());

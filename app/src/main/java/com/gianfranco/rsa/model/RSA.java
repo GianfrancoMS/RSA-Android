@@ -24,15 +24,15 @@ public class RSA implements Serializable {
     private final String encryptedText;
     private final String decryptedText;
 
-    public RSA(int bits, String plaintText) throws Exception {
+    public RSA(int keySize, String plaintText) throws Exception {
         if (!isValidText(plaintText))
             throw new Exception("Invalid string for encryption");
 
-        if (!isValidBits(bits))
+        if (!isValidBits(keySize))
             throw new Exception("Invalid bits for encryption");
 
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        kpg.initialize(bits);
+        kpg.initialize(keySize);
         KeyPair kp = kpg.generateKeyPair();
         PublicKey publicKey = kp.getPublic();
         PrivateKey privateKey = kp.getPrivate();
@@ -92,5 +92,9 @@ public class RSA implements Serializable {
 
     public String decryptedText() {
         return decryptedText;
+    }
+
+    public static class RSABuilder{
+
     }
 }

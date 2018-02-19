@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">RSA</string>
-    <string name="tittle_bits">Tamaño en bits para la llave publica y privada</string>
-    <string name="plain_text">Mensaje a encriptar</string>
-    <string name="encrypted_text">Mensaje encriptado</string>
-    <string name="desncrypted_text">Mensaje desencriptado</string>
-    <string name="p_value">Valor de P</string>
-    <string name="q_value">Valor de Q</string>
-    <string name="n_value">Valor de N</string>
-    <string name="z_value">Valor de Z</string>
-    <string name="e_value">Valor de E</string>
-    <string name="d_value">Valor de D</string>
-    <string name="text_input">Seleccione un numero de bits</string>
-    <string name="button_next">Siguiente</string>
-    <string name="button_home">Regresar a Inicio</string>
+    <string name="title_bits">Key size for the public and private key</string>
+    <string name="plain_text">Message to encrypt</string>
+    <string name="encrypted_text">Encrypted message</string>
+    <string name="decrypted_text">Decrypted message</string>
+    <string name="p_value">P value</string>
+    <string name="q_value">Q value</string>
+    <string name="n_value">N value</string>
+    <string name="z_value">Z value</string>
+    <string name="e_value">E value</string>
+    <string name="d_value">D value</string>
+    <string name="text_input">Select the key size</string>
+    <string name="button_next">Next</string>
+    <string name="button_home">Home</string>
 </resources>

@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/p"
+            android:id="@+id/tv_p"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -20,130 +20,130 @@
             android:text="@string/p_value" />
 
         <TextView
-            android:id="@+id/p_value"
+            android:id="@+id/tv_pValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/p"
+            android:layout_below="@+id/tv_p"
             android:layout_marginBottom="32dp" />
 
         <TextView
-            android:id="@+id/q"
+            android:id="@+id/tv_q"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/p_value"
+            android:layout_below="@+id/tv_pValue"
             android:text="@string/q_value" />
 
         <TextView
-            android:id="@+id/q_value"
+            android:id="@+id/tv_qValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/q"
+            android:layout_below="@+id/tv_q"
             android:layout_marginBottom="32dp" />
 
         <TextView
-            android:id="@+id/n"
+            android:id="@+id/tv_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/q_value"
+            android:layout_below="@+id/tv_qValue"
             android:text="@string/n_value" />
 
         <TextView
-            android:id="@+id/n_value"
+            android:id="@+id/tv_nValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/n"
+            android:layout_below="@+id/tv_n"
             android:layout_marginBottom="32dp" />
 
         <TextView
-            android:id="@+id/z"
+            android:id="@+id/tv_z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/n_value"
+            android:layout_below="@+id/tv_nValue"
             android:text="@string/z_value" />
 
         <TextView
-            android:id="@+id/z_value"
+            android:id="@+id/tv_zValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/z"
+            android:layout_below="@+id/tv_z"
             android:layout_marginBottom="32dp" />
 
         <TextView
-            android:id="@+id/d"
+            android:id="@+id/tv_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/z_value"
+            android:layout_below="@+id/tv_zValue"
             android:text="@string/d_value" />
 
         <TextView
-            android:id="@+id/d_value"
+            android:id="@+id/tv_dValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/d"
+            android:layout_below="@+id/tv_d"
             android:layout_marginBottom="32dp" />
 
         <TextView
-            android:id="@+id/e"
+            android:id="@+id/tv_e"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/d_value"
+            android:layout_below="@+id/tv_dValue"
             android:text="@string/e_value" />
 
         <TextView
-            android:id="@+id/e_value"
+            android:id="@+id/tv_eValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/e"
+            android:layout_below="@+id/tv_e"
             android:layout_marginBottom="32dp" />
 
         <TextView
-            android:id="@+id/encrypted"
+            android:id="@+id/tv_encrypted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/e_value"
+            android:layout_below="@+id/tv_eValue"
             android:text="@string/encrypted_text" />
 
         <TextView
-            android:id="@+id/encrypted_value"
+            android:id="@+id/tv_encrypted_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/encrypted"
+            android:layout_below="@+id/tv_encrypted"
             android:layout_marginBottom="32dp" />
 
         <TextView
-            android:id="@+id/desencrypted"
+            android:id="@+id/tv_decrypted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/encrypted_value"
-            android:text="@string/desncrypted_text" />
+            android:layout_below="@+id/tv_encrypted_value"
+            android:text="@string/decrypted_text" />
 
         <TextView
-            android:id="@+id/desencrypted_value"
+            android:id="@+id/tv_decrypted_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/desencrypted"
+            android:layout_below="@+id/tv_decrypted"
             android:layout_marginBottom="32dp" />
 
         <Button
             android:id="@+id/btn_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/desencrypted_value"
+            android:layout_below="@id/tv_decrypted_value"
             android:layout_centerHorizontal="true"
             android:text="@string/button_home"
             android:theme="@style/RaisedButton" />
