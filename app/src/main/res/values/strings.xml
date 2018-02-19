@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">RSA</string>
-    <string name="title_bits">Key size for the public and private key</string>
+    <string name="title_key_size">Key size for the public and private key</string>
     <string name="plain_text">Message to encrypt</string>
     <string name="encrypted_text">Encrypted message</string>
     <string name="decrypted_text">Decrypted message</string>
