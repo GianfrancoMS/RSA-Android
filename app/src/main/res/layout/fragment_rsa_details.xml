@@ -1,0 +1,153 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:scrollbarThumbVertical="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/p_value" />
+
+        <TextView
+            android:id="@+id/p_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/p"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:id="@+id/q"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/p_value"
+            android:text="@string/q_value" />
+
+        <TextView
+            android:id="@+id/q_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/q"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:id="@+id/n"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/q_value"
+            android:text="@string/n_value" />
+
+        <TextView
+            android:id="@+id/n_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/n"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:id="@+id/z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/n_value"
+            android:text="@string/z_value" />
+
+        <TextView
+            android:id="@+id/z_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/z"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:id="@+id/d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/z_value"
+            android:text="@string/d_value" />
+
+        <TextView
+            android:id="@+id/d_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/d"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:id="@+id/e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/d_value"
+            android:text="@string/e_value" />
+
+        <TextView
+            android:id="@+id/e_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/e"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:id="@+id/encrypted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/e_value"
+            android:text="@string/encrypted_text" />
+
+        <TextView
+            android:id="@+id/encrypted_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/encrypted"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:id="@+id/desencrypted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/encrypted_value"
+            android:text="@string/desncrypted_text" />
+
+        <TextView
+            android:id="@+id/desencrypted_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/desencrypted"
+            android:layout_marginBottom="32dp" />
+
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desencrypted_value"
+            android:layout_centerHorizontal="true"
+            android:text="@string/button_home"
+            android:theme="@style/RaisedButton" />
+
+    </RelativeLayout>
+
+</ScrollView>

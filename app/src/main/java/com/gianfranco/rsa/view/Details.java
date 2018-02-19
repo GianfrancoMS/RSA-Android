@@ -46,12 +46,12 @@ public class Details extends AppCompatActivity {
         encryptedValue=(TextView) findViewById(R.id.encrypted_value);
         desencryptedValue=(TextView) findViewById(R.id.desencrypted_value);
 
-        pValue.setText(rsa.P());
-        qValue.setText(rsa.q());
-        nValue.setText(rsa.N());
-        zValue.setText(rsa.Z());
-        dValue.setText(rsa.D());
-        eValue.setText(rsa.E());
+        pValue.setText(rsa.pToString());
+        qValue.setText(rsa.qToString());
+        nValue.setText(rsa.nToString());
+        zValue.setText(rsa.zToString());
+        dValue.setText(rsa.dToString());
+        eValue.setText(rsa.eToString());
         encryptedValue.setText(rsa.encryptedText());
         desencryptedValue.setText(rsa.decryptedText());
 

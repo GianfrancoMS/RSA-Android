@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    android:layout_marginStart="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/tv_label_plain_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/plain_text"
+        android:textSize="@dimen/label_size" />
+
+    <EditText
+        android:id="@+id/et_plaint_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_label_plain_text"
+        android:layout_marginBottom="16dp"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_plaint_text"
+        android:text="@string/button_next"
+        android:theme="@style/RaisedButton" />
+
+</RelativeLayout>

@@ -62,27 +62,27 @@ public class RSA implements Serializable {
         return bits > 0 && (bits & (bits - 1)) == 0;
     }
 
-    public String P() {
+    public String pToString() {
         return P.toString();
     }
 
-    public String q() {
+    public String qToString() {
         return Q.toString();
     }
 
-    public String N() {
+    public String nToString() {
         return N.toString();
     }
 
-    public String Z() {
+    public String zToString() {
         return Z.toString();
     }
 
-    public String D() {
+    public String dToString() {
         return D.toString();
     }
 
-    public String E() {
+    public String eToString() {
         return E.toString();
     }
 
