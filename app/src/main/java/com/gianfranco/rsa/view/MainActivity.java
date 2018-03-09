@@ -1,39 +1,59 @@
 package com.gianfranco.rsa.view;
 
-import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
 
 import com.gianfranco.rsa.R;
+import com.gianfranco.rsa.view.fragment.InputKeySizeFragment;
+import com.gianfranco.rsa.view.fragment.InputPlainTextFragment;
+import com.gianfranco.rsa.view.fragment.RSADetailsFragment;
 
 public class MainActivity extends AppCompatActivity {
+
+    private InputKeySizeFragment.OnKeySizeListener onKeySizeListener = new InputKeySizeFragment.OnKeySizeListener() {
+        @Override
+        public void onKeySizeSelected(int keySize) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_container, InputPlainTextFragment.newInstance(onMessageListener))
+                    .addToBackStack(null)
+                    .commit();
+        }
+    };
+
+    private InputPlainTextFragment.OnMessageListener onMessageListener = new InputPlainTextFragment.OnMessageListener() {
+        @Override
+        public void onMessageEntered(String message) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_container, RSADetailsFragment.newInstance(onClickHomeListener))
+                    .addToBackStack(null)
+                    .commit();
+        }
+    };
+
+    private RSADetailsFragment.OnClickHomeListener onClickHomeListener = new RSADetailsFragment.OnClickHomeListener() {
+        @Override
+        public void onClickHome() {
+            getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_container, InputKeySizeFragment.newInstance(onKeySizeListener))
+                    .addToBackStack(null)
+                    .commit();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Spinner spinnerBits = (Spinner) findViewById(R.id.spinner_key_size);
-        Integer [] bits = new Integer[] {64,128,256,512,1024,2048};
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this,R.layout.support_simple_spinner_dropdown_item,bits);
-        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerBits.setAdapter(adapter);
-
-        Button button=(Button) findViewById(R.id.btn_next1);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,InputPlainText.class);
-                intent.putExtra("SIZE_BITS",(Integer) spinnerBits.getSelectedItem());
-                startActivity(intent);
-                finish();
-            }
-        });
-
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_container, InputKeySizeFragment.newInstance(onKeySizeListener))
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 }
 
