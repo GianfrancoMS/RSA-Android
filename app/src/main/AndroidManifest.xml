@@ -16,7 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.gianfranco.rsa.view.InputPlainText" />
-        <activity android:name="com.gianfranco.rsa.view.Details" />
     </application>
 
 </manifest>
