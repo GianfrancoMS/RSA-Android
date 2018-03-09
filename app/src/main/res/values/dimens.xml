@@ -2,4 +2,5 @@
     <dimen name="horizontal_margin">16dp</dimen>
     <dimen name="vertical_margin">16dp</dimen>
     <dimen name="label_size">16sp</dimen>
+    <dimen name="margin">16dp</dimen>
 </resources>
