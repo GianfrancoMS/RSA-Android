@@ -14,17 +14,13 @@ import android.widget.Spinner;
 import com.gianfranco.rsa.R;
 
 public class InputKeySizeFragment extends Fragment {
+    public final static String TAG = InputKeySizeFragment.class.getCanonicalName();
 
     private Spinner keySizeSpinner;
     private Button buttonNext;
+    private ArrayAdapter<Integer> adapter;
 
     private OnKeySizeListener listener;
-
-    public static InputKeySizeFragment newInstance(OnKeySizeListener listener) {
-        InputKeySizeFragment fragment = new InputKeySizeFragment();
-        fragment.setOnKeySizeListener(listener);
-        return fragment;
-    }
 
     @FunctionalInterface
     public interface OnKeySizeListener {
@@ -32,7 +28,7 @@ public class InputKeySizeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_input_key_size, container, false);
     }
@@ -44,31 +40,30 @@ public class InputKeySizeFragment extends Fragment {
         buttonNext = view.findViewById(R.id.btn_next);
 
         Integer[] bits = new Integer[]{64, 128, 256, 512, 1024, 2048};
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item, bits);
+        adapter = new ArrayAdapter<>(view.getContext(), R.layout.support_simple_spinner_dropdown_item, bits);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         keySizeSpinner.setAdapter(adapter);
+    }
 
-        buttonNext.setOnClickListener(v -> {
-            int keySize = (Integer) keySizeSpinner.getSelectedItem();
-            listener.onKeySizeSelected(keySize);
-        });
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (getActivity() instanceof OnKeySizeListener) {
+            listener = (OnKeySizeListener) getActivity();
+            buttonNext.setOnClickListener(v -> {
+                int keySize = (Integer) keySizeSpinner.getSelectedItem();
+                listener.onKeySizeSelected(keySize);
+            });
+        }
     }
 
     @Override
     public void onDestroyView() {
         keySizeSpinner = null;
         buttonNext = null;
+        adapter = null;
+        listener = null;
         super.onDestroyView();
     }
-
-    @Override
-    public void onDetach() {
-        listener = null;
-        super.onDetach();
-    }
-
-    private void setOnKeySizeListener(OnKeySizeListener listener) {
-        this.listener = listener;
-    }
-
 }

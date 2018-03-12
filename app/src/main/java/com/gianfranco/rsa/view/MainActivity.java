@@ -9,51 +9,59 @@ import com.gianfranco.rsa.view.fragment.InputKeySizeFragment;
 import com.gianfranco.rsa.view.fragment.InputPlainTextFragment;
 import com.gianfranco.rsa.view.fragment.RSADetailsFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements InputKeySizeFragment.OnKeySizeListener,
+        InputPlainTextFragment.OnMessageListener, RSADetailsFragment.OnClickHomeListener {
 
-    private InputKeySizeFragment.OnKeySizeListener onKeySizeListener = new InputKeySizeFragment.OnKeySizeListener() {
-        @Override
-        public void onKeySizeSelected(int keySize) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.main_container, InputPlainTextFragment.newInstance(onMessageListener))
-                    .addToBackStack(null)
-                    .commit();
-        }
-    };
-
-    private InputPlainTextFragment.OnMessageListener onMessageListener = new InputPlainTextFragment.OnMessageListener() {
-        @Override
-        public void onMessageEntered(String message) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.main_container, RSADetailsFragment.newInstance(onClickHomeListener))
-                    .addToBackStack(null)
-                    .commit();
-        }
-    };
-
-    private RSADetailsFragment.OnClickHomeListener onClickHomeListener = new RSADetailsFragment.OnClickHomeListener() {
-        @Override
-        public void onClickHome() {
-            getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.main_container, InputKeySizeFragment.newInstance(onKeySizeListener))
-                    .addToBackStack(null)
-                    .commit();
-        }
-    };
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fragmentManager = getSupportFragmentManager();
+
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.main_container, InputKeySizeFragment.newInstance(onKeySizeListener))
+            fragmentManager.beginTransaction()
+                    .replace(R.id.main_container, new InputKeySizeFragment(), InputKeySizeFragment.TAG)
                     .addToBackStack(null)
                     .commit();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (fragmentManager.getBackStackEntryCount() == 1) {
+            finish();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onKeySizeSelected(int keySize) {
+        fragmentManager.beginTransaction()
+                .replace(R.id.main_container, new InputPlainTextFragment(), InputPlainTextFragment.TAG)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void onMessageEntered(String message) {
+        fragmentManager.beginTransaction()
+                .replace(R.id.main_container, new RSADetailsFragment(), RSADetailsFragment.TAG)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void onClickHome() {
+        fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.main_container, new InputKeySizeFragment(), InputKeySizeFragment.TAG)
+                .addToBackStack(null)
+                .commit();
     }
 }
 

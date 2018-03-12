@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.gianfranco.rsa.R;
 
 public class RSADetailsFragment extends Fragment {
+    public final static String TAG = RSADetailsFragment.class.getCanonicalName();
 
     private TextView pValue;
     private TextView qValue;
@@ -26,19 +27,13 @@ public class RSADetailsFragment extends Fragment {
 
     private OnClickHomeListener listener;
 
-    public static RSADetailsFragment newInstance(OnClickHomeListener listener) {
-        RSADetailsFragment fragment = new RSADetailsFragment();
-        fragment.setOnClickHomeListener(listener);
-        return fragment;
-    }
-
     @FunctionalInterface
     public interface OnClickHomeListener {
         void onClickHome();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_rsa_details, container, false);
     }
@@ -55,8 +50,16 @@ public class RSADetailsFragment extends Fragment {
         encryptedValue = view.findViewById(R.id.tv_encrypted_value);
         decryptedValue = view.findViewById(R.id.tv_decrypted_value);
         buttonHome = view.findViewById(R.id.btn_home);
+    }
 
-        buttonHome.setOnClickListener(v -> listener.onClickHome());
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (getActivity() instanceof OnClickHomeListener) {
+            listener = (OnClickHomeListener) getActivity();
+            buttonHome.setOnClickListener(v -> listener.onClickHome());
+        }
     }
 
     @Override
@@ -70,17 +73,8 @@ public class RSADetailsFragment extends Fragment {
         encryptedValue = null;
         decryptedValue = null;
         buttonHome = null;
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onDestroy() {
         listener = null;
-        super.onDestroy();
-    }
-
-    private void setOnClickHomeListener(OnClickHomeListener listener) {
-        this.listener = listener;
+        super.onDestroyView();
     }
 }
 

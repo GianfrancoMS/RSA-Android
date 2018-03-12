@@ -20,7 +20,7 @@ public class InputPlainText extends AppCompatActivity {
     private EditText editText;
     private Snackbar snackbar;
 
-    @Override
+  /*  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_plain_text);
@@ -81,5 +81,5 @@ public class InputPlainText extends AppCompatActivity {
                 }
             }
         });
-    }
+    }*/
 }
