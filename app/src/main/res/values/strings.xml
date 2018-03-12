@@ -13,4 +13,8 @@
     <string name="text_input">Select the key size</string>
     <string name="button_next">Next</string>
     <string name="button_home">Home</string>
+
+    <string name="snackbar_action">Got it!</string>
+    <string name="snackbar_message">Enter a valid message</string>
+    <string name="snackbar_error">There was error. Try again</string>
 </resources>

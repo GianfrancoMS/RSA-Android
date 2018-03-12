@@ -1,153 +1,159 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/white"
-    android:fillViewport="true"
     android:orientation="vertical"
     android:scrollbarThumbVertical="@color/colorPrimary">
 
-    <RelativeLayout
+    <ScrollView
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/tv_p"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/p_value" />
-
-        <TextView
-            android:id="@+id/tv_pValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_p"
-            android:layout_marginBottom="32dp" />
-
-        <TextView
-            android:id="@+id/tv_q"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_pValue"
-            android:text="@string/q_value" />
-
-        <TextView
-            android:id="@+id/tv_qValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_q"
-            android:layout_marginBottom="32dp" />
-
-        <TextView
-            android:id="@+id/tv_n"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_qValue"
-            android:text="@string/n_value" />
-
-        <TextView
-            android:id="@+id/tv_nValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_n"
-            android:layout_marginBottom="32dp" />
-
-        <TextView
-            android:id="@+id/tv_z"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_nValue"
-            android:text="@string/z_value" />
-
-        <TextView
-            android:id="@+id/tv_zValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_z"
-            android:layout_marginBottom="32dp" />
-
-        <TextView
-            android:id="@+id/tv_d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_zValue"
-            android:text="@string/d_value" />
-
-        <TextView
-            android:id="@+id/tv_dValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_d"
-            android:layout_marginBottom="32dp" />
-
-        <TextView
-            android:id="@+id/tv_e"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_dValue"
-            android:text="@string/e_value" />
-
-        <TextView
-            android:id="@+id/tv_eValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_e"
-            android:layout_marginBottom="32dp" />
-
-        <TextView
-            android:id="@+id/tv_encrypted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_eValue"
-            android:text="@string/encrypted_text" />
-
-        <TextView
-            android:id="@+id/tv_encrypted_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_encrypted"
-            android:layout_marginBottom="32dp" />
-
-        <TextView
-            android:id="@+id/tv_decrypted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_encrypted_value"
-            android:text="@string/decrypted_text" />
-
-        <TextView
-            android:id="@+id/tv_decrypted_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_decrypted"
-            android:layout_marginBottom="32dp" />
-
-        <Button
-            android:id="@+id/btn_home"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_decrypted_value"
-            android:layout_centerHorizontal="true"
-            android:text="@string/button_home"
-            android:theme="@style/RaisedButton" />
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_p"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/p_value" />
 
-</ScrollView>
+            <TextView
+                android:id="@+id/tv_pValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_p"
+                android:layout_marginBottom="32dp" />
+
+            <TextView
+                android:id="@+id/tv_q"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_pValue"
+                android:text="@string/q_value" />
+
+            <TextView
+                android:id="@+id/tv_qValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_q"
+                android:layout_marginBottom="32dp" />
+
+            <TextView
+                android:id="@+id/tv_n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_qValue"
+                android:text="@string/n_value" />
+
+            <TextView
+                android:id="@+id/tv_nValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_n"
+                android:layout_marginBottom="32dp" />
+
+            <TextView
+                android:id="@+id/tv_z"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_nValue"
+                android:text="@string/z_value" />
+
+            <TextView
+                android:id="@+id/tv_zValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_z"
+                android:layout_marginBottom="32dp" />
+
+            <TextView
+                android:id="@+id/tv_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_zValue"
+                android:text="@string/d_value" />
+
+            <TextView
+                android:id="@+id/tv_dValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_d"
+                android:layout_marginBottom="32dp" />
+
+            <TextView
+                android:id="@+id/tv_e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_dValue"
+                android:text="@string/e_value" />
+
+            <TextView
+                android:id="@+id/tv_eValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_e"
+                android:layout_marginBottom="32dp" />
+
+            <TextView
+                android:id="@+id/tv_encrypted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_eValue"
+                android:text="@string/encrypted_text" />
+
+            <TextView
+                android:id="@+id/tv_encrypted_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_encrypted"
+                android:layout_marginBottom="32dp" />
+
+            <TextView
+                android:id="@+id/tv_decrypted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_encrypted_value"
+                android:text="@string/decrypted_text" />
+
+            <TextView
+                android:id="@+id/tv_decrypted_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_decrypted"
+                android:layout_marginBottom="32dp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_home"
+        android:theme="@style/RaisedButton" />
+
+</LinearLayout>

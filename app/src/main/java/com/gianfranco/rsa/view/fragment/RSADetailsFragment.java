@@ -1,5 +1,6 @@
 package com.gianfranco.rsa.view.fragment;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +12,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.gianfranco.rsa.R;
+import com.gianfranco.rsa.model.RSA;
+import com.gianfranco.rsa.view.SnackbarUtil;
+import com.gianfranco.rsa.viewmodel.RSAViewModel;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class RSADetailsFragment extends Fragment {
     public final static String TAG = RSADetailsFragment.class.getCanonicalName();
@@ -26,6 +34,10 @@ public class RSADetailsFragment extends Fragment {
     private Button buttonHome;
 
     private OnClickHomeListener listener;
+
+    private final CompositeDisposable disposable = new CompositeDisposable();
+
+    private RSAViewModel rsaViewModel;
 
     @FunctionalInterface
     public interface OnClickHomeListener {
@@ -56,6 +68,15 @@ public class RSADetailsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        rsaViewModel = ViewModelProviders.of(getActivity()).get(RSAViewModel.class);
+
+        disposable.add(rsaViewModel.computeRSA()
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::fillValues,
+                        throwable -> SnackbarUtil.showSnackbar(getView(), getString(R.string.snackbar_error), getString(R.string.snackbar_action)))
+        );
+
         if (getActivity() instanceof OnClickHomeListener) {
             listener = (OnClickHomeListener) getActivity();
             buttonHome.setOnClickListener(v -> listener.onClickHome());
@@ -74,7 +95,19 @@ public class RSADetailsFragment extends Fragment {
         decryptedValue = null;
         buttonHome = null;
         listener = null;
+        disposable.clear();
         super.onDestroyView();
+    }
+
+    private void fillValues(RSA rsa) {
+        pValue.setText(rsa.pToString());
+        qValue.setText(rsa.qToString());
+        nValue.setText(rsa.nToString());
+        zValue.setText(rsa.zToString());
+        dValue.setText(rsa.dToString());
+        eValue.setText(rsa.eToString());
+        encryptedValue.setText(rsa.encryptedText());
+        decryptedValue.setText(rsa.decryptedText());
     }
 }
 

@@ -22,16 +22,6 @@ android {
     }
 }
 
-configurations.all { config ->
-    if (config.name.contains('UnitTest') || config.name.contains('AndroidTest')) {
-        config.resolutionStrategy.eachDependency { details ->
-            if (details.requested.group == 'com.squareup.leakcanary' && details.requested.name == 'leakcanary-android') {
-                details.useTarget(group: details.requested.group, name: 'leakcanary-android-no-op', version: details.requested.version)
-            }
-        }
-    }
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -48,9 +38,6 @@ dependencies {
 
     implementation "android.arch.lifecycle:extensions:1.1.0"
     implementation "android.arch.lifecycle:common-java8:1.1.0"
-
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.15.0'

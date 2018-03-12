@@ -1,5 +1,6 @@
 package com.gianfranco.rsa.view;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,16 +9,21 @@ import com.gianfranco.rsa.R;
 import com.gianfranco.rsa.view.fragment.InputKeySizeFragment;
 import com.gianfranco.rsa.view.fragment.InputPlainTextFragment;
 import com.gianfranco.rsa.view.fragment.RSADetailsFragment;
+import com.gianfranco.rsa.viewmodel.RSAViewModel;
 
 public class MainActivity extends AppCompatActivity implements InputKeySizeFragment.OnKeySizeListener,
         InputPlainTextFragment.OnMessageListener, RSADetailsFragment.OnClickHomeListener {
 
     private FragmentManager fragmentManager;
 
+    private RSAViewModel rsaViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rsaViewModel = ViewModelProviders.of(this).get(RSAViewModel.class);
 
         fragmentManager = getSupportFragmentManager();
 

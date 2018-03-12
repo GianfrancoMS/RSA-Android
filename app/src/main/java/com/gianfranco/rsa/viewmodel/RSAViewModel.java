@@ -1,63 +1,64 @@
 package com.gianfranco.rsa.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.gianfranco.rsa.model.RSA;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class RSAViewModel extends ViewModel {
 
     private int keySize;
     private String message;
 
-    private final MutableLiveData<RSA> rsaMutableLiveData = new MutableLiveData<>();
-    private final MutableLiveData<ProgressStatus> progressStatusMutableLiveData = new MutableLiveData<>();
+    public Completable setKeySize(int keySize) {
+        return Completable.fromAction(() -> {
 
-    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
+            int BITS = 8;
 
-    public enum ProgressStatus {
-        LOADING, ERROR, COMPLETED
+            if (keySize <= BITS - 1)
+                throw new IllegalArgumentException("Key size is too short");
+
+            if (keySize % 8 != 0)
+                throw new IllegalArgumentException("Key size is not multiple of 8");
+
+            this.keySize = keySize;
+        });
     }
 
-    @Override
-    protected void onCleared() {
-        compositeDisposable.clear();
-        super.onCleared();
+    public Completable setMessage(String message) {
+        return Completable.fromAction(() -> {
+
+            if (message == null)
+                throw new NullPointerException("Message is null");
+
+            if (isMessageEmpty(message))
+                throw new IllegalArgumentException("Message is empty");
+
+            if (isMessageTrimEmpty(message))
+                throw new IllegalArgumentException("Message contains only whitespaces");
+
+            this.message = message;
+        });
     }
 
-    public void setKeySize(int keySize) {
-        this.keySize = keySize;
+    public int getMaxSizeMessage() {
+        return keySize / 8;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public LiveData<RSA> getRSA() {
-        return rsaMutableLiveData;
-    }
-
-    public LiveData<ProgressStatus> getProgressStatus() {
-        return progressStatusMutableLiveData;
-    }
-
-    public void computeRSA() {
-        compositeDisposable.add(Single.fromCallable(() -> new RSA.Builder(keySize, message)
+    public Single<RSA> computeRSA() {
+        return Single.fromCallable(() -> new RSA.Builder(keySize, message)
                 .encodeMessage()
                 .decodeMessage()
-                .build())
-                .subscribeOn(Schedulers.computation())
-                .doOnSubscribe(disposable -> progressStatusMutableLiveData.postValue(ProgressStatus.LOADING))
-                .subscribe(rsa -> {
-                            rsaMutableLiveData.postValue(rsa);
-                            progressStatusMutableLiveData.postValue(ProgressStatus.COMPLETED);
-                        }, throwable -> progressStatusMutableLiveData.postValue(ProgressStatus.ERROR)
-                ));
+                .build());
     }
 
+    private boolean isMessageEmpty(String message) {
+        return message.length() == 0;
+    }
+
+    private boolean isMessageTrimEmpty(String message) {
+        return message.trim().length() == 0;
+    }
 }

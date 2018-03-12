@@ -1,5 +1,6 @@
 package com.gianfranco.rsa.view.fragment;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import com.gianfranco.rsa.R;
+import com.gianfranco.rsa.view.SnackbarUtil;
+import com.gianfranco.rsa.viewmodel.RSAViewModel;
 
 public class InputKeySizeFragment extends Fragment {
     public final static String TAG = InputKeySizeFragment.class.getCanonicalName();
@@ -21,6 +24,8 @@ public class InputKeySizeFragment extends Fragment {
     private ArrayAdapter<Integer> adapter;
 
     private OnKeySizeListener listener;
+
+    private RSAViewModel rsaViewModel;
 
     @FunctionalInterface
     public interface OnKeySizeListener {
@@ -49,11 +54,18 @@ public class InputKeySizeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        rsaViewModel = ViewModelProviders.of(getActivity()).get(RSAViewModel.class);
+
         if (getActivity() instanceof OnKeySizeListener) {
             listener = (OnKeySizeListener) getActivity();
+
             buttonNext.setOnClickListener(v -> {
-                int keySize = (Integer) keySizeSpinner.getSelectedItem();
-                listener.onKeySizeSelected(keySize);
+
+                int position = keySizeSpinner.getSelectedItemPosition();
+                int keySize = adapter.getItem(position);
+
+                rsaViewModel.setKeySize(keySize).subscribe(() -> listener.onKeySizeSelected(keySize),
+                        throwable -> SnackbarUtil.showSnackbar(v, getString(R.string.snackbar_error), getString(R.string.snackbar_action)));
             });
         }
     }
