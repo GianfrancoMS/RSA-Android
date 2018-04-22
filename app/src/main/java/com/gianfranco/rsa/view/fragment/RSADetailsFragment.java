@@ -1,6 +1,7 @@
 package com.gianfranco.rsa.view.fragment;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -47,7 +49,9 @@ public class RSADetailsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_rsa_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_rsa_details, container, false);
+        hideKeyboard(view);
+        return view;
     }
 
     @Override
@@ -108,6 +112,12 @@ public class RSADetailsFragment extends Fragment {
         eValue.setText(rsa.eToString());
         encryptedValue.setText(rsa.encryptedText());
         decryptedValue.setText(rsa.decryptedText());
+    }
+
+    private void hideKeyboard(View view) {
+        InputMethodManager input = (InputMethodManager) getActivity()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        input.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
     }
 }
 
