@@ -8,7 +8,6 @@ import io.reactivex.Completable;
 import io.reactivex.Single;
 
 public class RSAViewModel extends ViewModel {
-
     private int keySize;
     private String message;
 

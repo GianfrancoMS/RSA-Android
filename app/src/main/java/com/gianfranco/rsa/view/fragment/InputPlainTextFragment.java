@@ -55,7 +55,6 @@ public class InputPlainTextFragment extends Fragment {
         if (getActivity() instanceof OnMessageListener) {
             listener = (OnMessageListener) getActivity();
             buttonNext.setOnClickListener(view -> {
-
                 String message = editTextMessage.getText().toString();
 
                 rsaViewModel.setMessage(message).subscribe(() -> listener.onMessageEntered(message),

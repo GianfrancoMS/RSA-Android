@@ -39,8 +39,6 @@ public class RSADetailsFragment extends Fragment {
 
     private final CompositeDisposable disposable = new CompositeDisposable();
 
-    private RSAViewModel rsaViewModel;
-
     @FunctionalInterface
     public interface OnClickHomeListener {
         void onClickHome();
@@ -72,7 +70,7 @@ public class RSADetailsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        rsaViewModel = ViewModelProviders.of(getActivity()).get(RSAViewModel.class);
+        RSAViewModel rsaViewModel = ViewModelProviders.of(getActivity()).get(RSAViewModel.class);
 
         disposable.add(rsaViewModel.computeRSA()
                 .subscribeOn(Schedulers.computation())
